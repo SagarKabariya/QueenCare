@@ -1,4 +1,4 @@
- package org.Appointment;
+ package Appointment;
 
 import java.awt.CardLayout;
 import java.awt.EventQueue;

@@ -1,4 +1,4 @@
-package org.Appointment;
+package Appointment;
 
 import java.awt.BorderLayout;
 import java.awt.Color;

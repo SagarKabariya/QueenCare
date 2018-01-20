@@ -19,8 +19,8 @@ import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-import org.Appointment.Appointment;
-import org.Appointment.Appointment_show;
+import Appointment.Appointment;
+import Appointment.Appointment_show;
 import org.eclipse.wb.swing.FocusTraversalOnArray;
 
 import Admit.Admit_main;
