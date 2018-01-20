@@ -1,4 +1,4 @@
-package org.main;
+package main;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Component;
@@ -8,7 +8,6 @@ import java.awt.Panel;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
 import javax.swing.JButton;
 import javax.swing.JDesktopPane;
 import javax.swing.JFrame;
@@ -18,11 +17,9 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
-
 import Appointment.Appointment;
 import Appointment.Appointment_show;
 import org.eclipse.wb.swing.FocusTraversalOnArray;
-
 import Admit.Admit_main;
 import Analysis.Report_desk;
 import Bill.Bill_entry;
@@ -60,8 +57,6 @@ public class MainFrm extends JFrame {
 					frame.setExtendedState(frame.MAXIMIZED_BOTH);
 					frame.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 					frame.setVisible(true);
-					
-					
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -69,11 +64,6 @@ public class MainFrm extends JFrame {
 			
 		});
 	}
-	public void mshow() {
-		Panel p = new Panel();
-		p.setVisible(true);
-	}
-	
 	/**
 	 * Create the frame.
 	 */
@@ -83,7 +73,6 @@ public class MainFrm extends JFrame {
 		setForeground(Color.ORANGE);
 		setIconImage(Toolkit.getDefaultToolkit().getImage(MainFrm.class.getResource("/Images/electrocardiogram2.png")));
 		setTitle("Queen Care Hospital Management System");
-		
 		setBounds(100, 100, 1365, 731);
 		
 		JDesktopPane desktopPane = new JDesktopPane();
@@ -97,7 +86,6 @@ public class MainFrm extends JFrame {
 				System.exit(0);
 			}
 		});
-		
 		
 		JPanel Login = new JPanel();
 		Login.setBounds(0, 0, 1365, 278);
