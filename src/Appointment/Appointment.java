@@ -1,5 +1,6 @@
  package Appointment;
 
+import Connect.ConnectionManager;
 import java.awt.CardLayout;
 import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
@@ -33,6 +34,7 @@ import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 
 import com.toedter.calendar.JDateChooser;
+import java.awt.Font;
 public class Appointment extends JInternalFrame {
 	private JTextField textField;
 	private JTextField textField_1;
@@ -66,15 +68,12 @@ public class Appointment extends JInternalFrame {
 	}
 
 	public Appointment() {
+		setTitle("Appointment Booking");
 		
-		 try{Class.forName("com.mysql.jdbc.Driver");
-		     conn=DriverManager.getConnection("jdbc:mysql://localhost:3306/queencare","root","");
-		 }catch(Exception e1){
-			 e1.printStackTrace();
-		 }
+		conn=ConnectionManager.getConnection();
 		 
 		setClosable(true);
-		setBounds(100, 100, 920, 365);
+		setBounds(100, 100, 1012, 365);
 		getContentPane().setLayout(new CardLayout(0, 0));
 		
 		JPanel panel = new JPanel();
@@ -82,25 +81,28 @@ public class Appointment extends JInternalFrame {
 		panel.setLayout(null);
 		
 		JLabel lblFirstName = new JLabel("First Name:");
-		lblFirstName.setBounds(10, 29, 61, 14);
+		lblFirstName.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		lblFirstName.setBounds(12, 16, 123, 25);
 		panel.add(lblFirstName);
 		
 		textField = new JTextField();
-		textField.setBounds(79, 26, 116, 20);
+		textField.setBounds(110, 15, 153, 31);
 		panel.add(textField);
 		textField.setColumns(10);
 		
 		JLabel lblLastName = new JLabel("Last Name:");
-		lblLastName.setBounds(207, 29, 61, 14);
+		lblLastName.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		lblLastName.setBounds(298, 14, 123, 28);
 		panel.add(lblLastName);
 		
 		textField_1 = new JTextField();
-		textField_1.setBounds(265, 26, 121, 20);
+		textField_1.setBounds(401, 15, 153, 31);
 		panel.add(textField_1);
 		textField_1.setColumns(10);
 		
 		JLabel lblMobileNo = new JLabel("Mobile No:");
-		lblMobileNo.setBounds(481, 29, 61, 14);
+		lblMobileNo.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		lblMobileNo.setBounds(669, 18, 116, 20);
 		panel.add(lblMobileNo);
 		
 		textField_1.addFocusListener(new FocusAdapter() {
@@ -108,7 +110,7 @@ public class Appointment extends JInternalFrame {
 			public void focusLost(FocusEvent arg0) {
 			DefaultTableModel model = (DefaultTableModel)table.getModel();	
 				try{
-					st=conn.prepareStatement("select c.date_of_case,c.case_id,p.p_id,c.validity_of_case,p.p_first_name,p.p_last_name,p.p_gender,p.p_contact from case_main c,patient_detail p where p.p_id=c.p_id AND p.p_first_name like '"+textField.getText()+"' AND p.p_last_name like '"+textField_1.getText()+"'");
+					st=conn.prepareStatement("select c.date_of_case,c.case_id,p.p_id,c.validity_of_case,p.p_first_name,p.p_last_name,p.p_gender,p.p_contact from case_main c,patient_detail p where p.p_id=c.p_id AND p.p_first_name like '"+textField.getText()+"%' AND p.p_last_name like '"+textField_1.getText()+"%'");
 					rs=st.executeQuery();
 				    model.setRowCount(0);
 					while(rs.next()){
@@ -136,7 +138,7 @@ public class Appointment extends JInternalFrame {
 				 }
 			}
 		});
-		textField_2.setBounds(574, 26, 116, 20);
+		textField_2.setBounds(770, 17, 153, 27);
 		panel.add(textField_2);
 		textField_2.setColumns(10);
 		
@@ -296,10 +298,12 @@ public class Appointment extends JInternalFrame {
 		panel_1.add(btnMakeAppointment);
 		
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(10, 54, 884, 175);
+		scrollPane.setBounds(12, 59, 972, 175);
 		panel.add(scrollPane);
 		
 		table = new JTable();
+		table.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		table.setRowHeight(25);
 		table.setModel(new DefaultTableModel(
 			new Object[][] {
 			},
@@ -311,15 +315,17 @@ public class Appointment extends JInternalFrame {
 		scrollPane.setViewportView(table);
 		
 		JLabel lblEnterPatientId = new JLabel("Enter Case ID");
-		lblEnterPatientId.setBounds(31, 246, 90, 14);
+		lblEnterPatientId.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		lblEnterPatientId.setBounds(44, 261, 153, 24);
 		panel.add(lblEnterPatientId);
 		
 		txtgetid = new JTextField();
-		txtgetid.setBounds(10, 271, 116, 20);
+		txtgetid.setBounds(172, 258, 153, 33);
 		panel.add(txtgetid);
 		txtgetid.setColumns(10);
 		
 		JButton btnGoForTake = new JButton("Go for take appointment ");
+		btnGoForTake.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		btnGoForTake.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				passid=txtgetid.getText();
@@ -346,12 +352,23 @@ public class Appointment extends JInternalFrame {
 			}
 		});
 		
-		btnGoForTake.setBounds(136, 270, 153, 23);
+		btnGoForTake.setBounds(337, 256, 240, 35);
 		panel.add(btnGoForTake);
 		
 		JLabel lblOr = new JLabel("OR");
-		lblOr.setBounds(425, 29, 46, 14);
+		lblOr.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		lblOr.setBounds(606, 17, 51, 22);
 		panel.add(lblOr);
+		
+		JButton btnClose = new JButton("Close");
+		btnClose.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+			}
+		});
+		btnClose.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		btnClose.setBounds(887, 247, 97, 50);
+		panel.add(btnClose);
         	
 	}	
 }

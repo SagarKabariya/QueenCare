@@ -1,5 +1,5 @@
 package Diagnosis;
-
+import Connect.ConnectionManager;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.EventQueue;
@@ -70,6 +70,7 @@ public class Patient_history extends JInternalFrame {
 	
 	int totmedi=0;
 	int medion=0;
+	private JTextField txtother;
 	/**
 	 * Launch the application.
 	 */
@@ -93,13 +94,9 @@ public class Patient_history extends JInternalFrame {
 	public Patient_history() {
 		setTitle("Patient Diagnosis - Hospital Management");
 		setClosable(true);
-		setBounds(100, 100, 1214, 614);
+		setBounds(100, 100, 1466, 732);
 	
-		 try{Class.forName("com.mysql.jdbc.Driver");
-	    	conn=DriverManager.getConnection("jdbc:mysql://localhost:3306/queencare","root","");
-	 }catch(Exception e1){
-		 e1.printStackTrace();
-	 }
+		conn=ConnectionManager.getConnection();
 		
 		JDesktopPane desktopPane = new JDesktopPane();
 		desktopPane.setBackground(new Color(32, 178, 170));
@@ -107,7 +104,7 @@ public class Patient_history extends JInternalFrame {
 		desktopPane.setLayout(null);
 		
 		JPanel panel = new JPanel();
-		panel.setBounds(10, 10, 345, 52);
+		panel.setBounds(10, 10, 527, 52);
 		desktopPane.add(panel);
 		panel.setLayout(null);
 		
@@ -121,108 +118,132 @@ public class Patient_history extends JInternalFrame {
 		panel.add(txtcsid);
 		txtcsid.setColumns(10);
 		
+		JButton btnOpen = new JButton("Open");
+		btnOpen.setBounds(327, 11, 183, 25);
+		panel.add(btnOpen);
+		
 		JPanel panel_1 = new JPanel();
-		panel_1.setBounds(10, 68, 345, 120);
+		panel_1.setBounds(10, 68, 527, 120);
 		desktopPane.add(panel_1);
 		panel_1.setLayout(null);
 		
 		JLabel lblName = new JLabel("Name");
-		lblName.setBounds(10, 0, 100, 22);
+		lblName.setFont(new Font("Tahoma", Font.PLAIN, 25));
+		lblName.setBounds(10, 26, 100, 22);
 		panel_1.add(lblName);
 		
 		JLabel lblDate = new JLabel("Date of App");
-		lblDate.setBounds(10, 22, 100, 22);
+		lblDate.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		lblDate.setBounds(10, 61, 100, 22);
 		panel_1.add(lblDate);
 		
 		JLabel lblNewLabel = new JLabel("Case Date");
-		lblNewLabel.setBounds(10, 45, 100, 22);
+		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		lblNewLabel.setBounds(10, 85, 100, 22);
 		panel_1.add(lblNewLabel);
 		
-		JLabel lblDoctore = new JLabel("Doctor");
-		lblDoctore.setBounds(10, 69, 100, 22);
-		panel_1.add(lblDoctore);
-		
-		JLabel lblAppointmentDate = new JLabel("Department");
-		lblAppointmentDate.setBounds(10, 91, 100, 22);
-		panel_1.add(lblAppointmentDate);
-		
 		JLabel lb1 = new JLabel("");
-		lb1.setBounds(135, 0, 200, 22);
+		lb1.setFont(new Font("Tahoma", Font.PLAIN, 25));
+		lb1.setBounds(135, 15, 380, 41);
 		panel_1.add(lb1);
 		
 		JLabel lb2 = new JLabel("");
-		lb2.setBounds(145, 22, 200, 22);
+		lb2.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		lb2.setBounds(135, 61, 200, 22);
 		panel_1.add(lb2);
 		
 		JLabel lb3 = new JLabel("");
-		lb3.setBounds(135, 45, 200, 22);
+		lb3.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		lb3.setBounds(135, 85, 200, 22);
 		panel_1.add(lb3);
 		
-		JLabel lb4 = new JLabel("");
-		lb4.setBounds(135, 69, 200, 22);
-		panel_1.add(lb4);
-		
-		JLabel lb5 = new JLabel("");
-		lb5.setBounds(135, 91, 200, 22);
-		panel_1.add(lb5);
-		
 		JPanel panel_2 = new JPanel();
-		panel_2.setBounds(367, 10, 821, 52);
+		panel_2.setBounds(549, 10, 527, 304);
 		desktopPane.add(panel_2);
 		panel_2.setLayout(null);
 		
 		JLabel lblSymptoms = new JLabel("Test");
-		lblSymptoms.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		lblSymptoms.setBounds(30, 0, 83, 46);
+		lblSymptoms.setFont(new Font("Tahoma", Font.PLAIN, 25));
+		lblSymptoms.setBounds(12, 163, 83, 46);
 		panel_2.add(lblSymptoms);
 		
 		JCheckBox chk1 = new JCheckBox("BioChemistry");
-		chk1.setBounds(119, 0, 97, 23);
+		chk1.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		chk1.setBounds(103, 138, 142, 23);
 		panel_2.add(chk1);
 		
 		JCheckBox chk2 = new JCheckBox("Stool");
-		chk2.setBounds(119, 26, 62, 23);
+		chk2.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		chk2.setBounds(392, 220, 142, 23);
 		panel_2.add(chk2);
 		
 		JCheckBox chk7 = new JCheckBox("X-Ray");
-		chk7.setBounds(218, 0, 62, 23);
+		chk7.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		chk7.setBounds(103, 220, 142, 23);
 		panel_2.add(chk7);
 		
 		JCheckBox chk3 = new JCheckBox("Blood");
-		chk3.setBounds(218, 26, 62, 23);
+		chk3.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		chk3.setBounds(103, 179, 142, 23);
 		panel_2.add(chk3);
 		
 		JCheckBox chk5 = new JCheckBox("Gastroscopy");
-		chk5.setBounds(282, 0, 97, 23);
+		chk5.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		chk5.setBounds(260, 138, 124, 23);
 		panel_2.add(chk5);
 		
 		JCheckBox chk6 = new JCheckBox("Urine");
-		chk6.setBounds(282, 26, 62, 23);
+		chk6.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		chk6.setBounds(392, 179, 166, 23);
 		panel_2.add(chk6);
 		
 		JCheckBox chk8 = new JCheckBox("Sonography");
-		chk8.setBounds(381, 26, 97, 23);
+		chk8.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		chk8.setBounds(260, 220, 166, 23);
 		panel_2.add(chk8);
 		
 		JCheckBox chk9 = new JCheckBox("ECG");
-		chk9.setBounds(381, 0, 62, 23);
+		chk9.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		chk9.setBounds(260, 179, 166, 23);
 		panel_2.add(chk9);
 		
-		JLabel lblOther = new JLabel("Other");
-		lblOther.setBounds(684, 1, 55, 20);
-		panel_2.add(lblOther);
-		
-		JComboBox cmbother = new JComboBox();
-		cmbother.setModel(new DefaultComboBoxModel(new String[] {"Testing1", "Testing2", "Testing3"}));
-		cmbother.setBounds(634, 26, 153, 20);
-		panel_2.add(cmbother);
-		
 		JCheckBox chk4 = new JCheckBox("Colonoscopy");
-		chk4.setBounds(479, 0, 97, 23);
+		chk4.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		chk4.setBounds(392, 138, 149, 23);
 		panel_2.add(chk4);
 		
+		JLabel lblDoctore = new JLabel("Doctor");
+		lblDoctore.setFont(new Font("Tahoma", Font.PLAIN, 17));
+		lblDoctore.setBounds(12, 13, 100, 33);
+		panel_2.add(lblDoctore);
+		
+		JLabel lblAppointmentDate = new JLabel("Department");
+		lblAppointmentDate.setFont(new Font("Tahoma", Font.PLAIN, 17));
+		lblAppointmentDate.setBounds(12, 51, 100, 33);
+		panel_2.add(lblAppointmentDate);
+		
+		JLabel lb4 = new JLabel("");
+		lb4.setFont(new Font("Tahoma", Font.PLAIN, 17));
+		lb4.setBounds(137, 13, 200, 33);
+		panel_2.add(lb4);
+		
+		JLabel lb5 = new JLabel("");
+		lb5.setFont(new Font("Tahoma", Font.PLAIN, 17));
+		lb5.setBounds(137, 51, 200, 33);
+		panel_2.add(lb5);
+		
+		JLabel lblOtherRequireTest = new JLabel("Other Require Test");
+		lblOtherRequireTest.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		lblOtherRequireTest.setBounds(12, 268, 135, 23);
+		panel_2.add(lblOtherRequireTest);
+		
+		txtother = new JTextField();
+		txtother.setBounds(159, 269, 356, 22);
+		panel_2.add(txtother);
+		txtother.setColumns(10);
+		
 		JPanel panel_3 = new JPanel();
-		panel_3.setBounds(365, 68, 823, 120);
+		panel_3.setBounds(10, 194, 527, 120);
 		desktopPane.add(panel_3);
 		panel_3.setLayout(null);
 		
@@ -235,18 +256,12 @@ public class Patient_history extends JInternalFrame {
 		textArea.setLineWrap(true);
 		textArea.setWrapStyleWord(true);
 		textArea.setRows(4);
-		textArea.setBounds(142, 15, 671, 94);
+		textArea.setBounds(142, 15, 377, 94);
 		panel_3.add(textArea);
-		
-		JPanel panel_4 = new JPanel();
-		panel_4.setBackground(Color.GRAY);
-		panel_4.setLayout(null);
-		panel_4.setBounds(10, 185, 1178, 13);
-		desktopPane.add(panel_4);
 		
 		JPanel panel_5 = new JPanel();
 		panel_5.setLayout(null);
-		panel_5.setBounds(10, 222, 1178, 317);
+		panel_5.setBounds(12, 366, 1246, 317);
 		desktopPane.add(panel_5);
 		
 		JLabel lblNewLabel_1 = new JLabel("Medicine Name");
@@ -634,7 +649,7 @@ public class Patient_history extends JInternalFrame {
 				medion=1;
 			}
 		});
-		button.setBounds(10, 199, 160, 23);
+		button.setBounds(10, 327, 168, 26);
 		desktopPane.add(button);
 		
 		txtcsid.addFocusListener(new FocusAdapter() {
@@ -687,7 +702,7 @@ public class Patient_history extends JInternalFrame {
 				if(chk7.isSelected()==true){c7=1;}
 				if(chk8.isSelected()==true){c8=1;}
 				if(chk9.isSelected()==true){c9=1;}
-				String other=cmbother.getSelectedItem().toString();
+				String other;
 				String advice=textArea.getText();
 				Date date = new Date();
 				java.text.SimpleDateFormat fmt = new java.text.SimpleDateFormat("yyyy-MM-dd");
@@ -708,7 +723,7 @@ public class Patient_history extends JInternalFrame {
 					p.setInt(8,c6);
 					p.setInt(9,c7);
 					p.setInt(10,c8);
-					p.setString(11,other);
+					p.setString(11,txtother.getText());
 					p.setString(12,dd);
 					p.setString(13,textArea_1.getText());
 					p.setInt(14,c9);
@@ -750,12 +765,27 @@ public class Patient_history extends JInternalFrame {
 			}
 			}
 		});
-		btnSubmit.setBounds(984, 550, 180, 23);
+		btnSubmit.setBounds(1088, 307, 168, 46);
 		desktopPane.add(btnSubmit);
 		
 		JLabel lblMedicineAdvice = new JLabel("Medicine Advice");
-		lblMedicineAdvice.setBounds(176, 199, 168, 26);
+		lblMedicineAdvice.setBounds(187, 327, 168, 26);
 		desktopPane.add(lblMedicineAdvice);
 		lblMedicineAdvice.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		
+		JPanel panel_4 = new JPanel();
+		panel_4.setBackground(Color.GRAY);
+		panel_4.setLayout(null);
+		panel_4.setBounds(10, 311, 1066, 52);
+		desktopPane.add(panel_4);
+		
+		JButton btnClose = new JButton("Close");
+		btnClose.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+			}
+		});
+		btnClose.setBounds(1087, 242, 168, 52);
+		desktopPane.add(btnClose);
 	}
 }

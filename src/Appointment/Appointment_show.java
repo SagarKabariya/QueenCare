@@ -1,5 +1,6 @@
 package Appointment;
 
+import Connect.*;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.EventQueue;
@@ -20,6 +21,7 @@ import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
 import com.toedter.calendar.JDateChooser;
+import java.awt.Font;
 
 public class Appointment_show extends JInternalFrame {
 	private JTable table;
@@ -44,15 +46,8 @@ public class Appointment_show extends JInternalFrame {
 	 * Create the frame.
 	 */
 	public Appointment_show() {
-		try{
-			 
-			Class.forName("com.mysql.jdbc.Driver");
-		    	conn=DriverManager.getConnection("jdbc:mysql://localhost:3306/queencare","root","");
-		    	
-		 }catch(Exception e1){
-			 e1.printStackTrace();
-		 }
-		setClosable(true);
+		setTitle("Appointment Checking List");
+		conn=ConnectionManager.getConnection();
 		setBounds(100, 100, 1036, 500);
 		
 		JDesktopPane desktopPane = new JDesktopPane();
@@ -65,7 +60,9 @@ public class Appointment_show extends JInternalFrame {
 		desktopPane.add(scrollPane);
 		
 		table_1 = new JTable();
+		table_1.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		scrollPane.setViewportView(table_1);
+		table_1.setRowHeight(25);
 		table_1.setModel(new DefaultTableModel(
 			new Object[][] {
 			},
@@ -75,11 +72,12 @@ public class Appointment_show extends JInternalFrame {
 		));
 		
 		JLabel lblAppointmentDate = new JLabel("Appointment Date");
-		lblAppointmentDate.setBounds(10, 11, 113, 26);
+		lblAppointmentDate.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		lblAppointmentDate.setBounds(10, 11, 135, 40);
 		desktopPane.add(lblAppointmentDate);
 		
 		JDateChooser dateChooser = new JDateChooser();
-		dateChooser.setBounds(115, 11, 132, 26);
+		dateChooser.setBounds(157, 11, 141, 38);
 		desktopPane.add(dateChooser);
 		
 		table_1.getColumnModel().getColumn(0).setPreferredWidth(86);
@@ -116,7 +114,16 @@ public class Appointment_show extends JInternalFrame {
 		    	
 			}
 		});
-		btnNewButton.setBounds(268, 13, 89, 23);
+		btnNewButton.setBounds(310, 11, 113, 38);
 		desktopPane.add(btnNewButton);
+		
+		JButton btnClose = new JButton("Close");
+		btnClose.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+			}
+		});
+		btnClose.setBounds(897, 11, 113, 40);
+		desktopPane.add(btnClose);
 	}
 }
