@@ -7,6 +7,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.ParseException;
 
+import javax.swing.JOptionPane;
+
 public class ConnectionManager {
     private static String url = "jdbc:mysql://localhost:3306/Queencare?useSSL=false";    
     private static String driverName = "com.mysql.jdbc.Driver";   
@@ -22,7 +24,7 @@ public class ConnectionManager {
                 con = DriverManager.getConnection(url, username, password);
             } catch (SQLException ex) {
                 // log an exception. fro example:
-                System.out.println("Failed to create the database connection."); 
+               JOptionPane.showMessageDialog(null, "Failed to create the database connection.", "Database Connection Failed", 0); 
             }
         } catch (ClassNotFoundException ex) {
             // log an exception. for example:

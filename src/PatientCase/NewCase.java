@@ -2,6 +2,7 @@ package PatientCase;
 
 import Connect.*;
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
@@ -28,6 +29,7 @@ import javax.swing.JRadioButton;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
+import javax.swing.UIManager;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
 import javax.swing.border.TitledBorder;
@@ -148,7 +150,7 @@ public class NewCase extends JInternalFrame {
 				DefaultTableModel model = (DefaultTableModel)table.getModel();	
 				try{
 				    	st=conn.prepareStatement("select * from patient_detail where p_first_name like '"+textField.getText()+"' AND p_last_name like '"+textField_1.getText()+"' AND p_contact like '"+textField_2.getText()+"'");
-					
+				    	//System.out.println(st);
 				    	rs=st.executeQuery();
 				    	model.setRowCount(0);
 					while(rs.next()){
@@ -175,8 +177,9 @@ public class NewCase extends JInternalFrame {
 		txt_p_id.setBounds(124, 270, 166, 20);
 		panel_1.add(txt_p_id);
 		txt_p_id.setColumns(10);
+		
 		JDateChooser dc_2 = new JDateChooser();
-		dc_2.setBounds(517, 276, 166, 20);
+		dc_2.setBounds(524, 276, 166, 20);
 		panel_1.add(dc_2);
 		
 		JLabel lblDateOfCase = new JLabel("Date of Case");
@@ -251,7 +254,10 @@ public class NewCase extends JInternalFrame {
 							JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
 							if (response == JOptionPane.YES_OPTION) {
 									p2.executeUpdate();
-									JOptionPane.showMessageDialog(null, "Case Genarating Success","Case Genarating",JOptionPane.PLAIN_MESSAGE);					
+									UIManager.put("OptionPane.minimumSize",new Dimension(500,200)); 
+									JOptionPane.showMessageDialog(null, "Case Genarating Success, Screen will close automaticaly after clik on OK button.","Case Genarating Success",JOptionPane.PLAIN_MESSAGE);	
+									
+									
 							}
 				} catch (SQLException | ParseException e) {
 					// TODO Auto-generated catch block

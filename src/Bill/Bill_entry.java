@@ -62,7 +62,7 @@ public class Bill_entry extends JInternalFrame {
 		setFrameIcon(null);
 		setTitle("Payment - Hospital Management System");
 		getContentPane().setBackground(new Color(255, 153, 0));
-		setBounds(100, 100, 1059, 489);
+		setBounds(100, 100, 1288, 569);
 		getContentPane().setLayout(null);
 		
 		 try{Class.forName("com.mysql.jdbc.Driver");
@@ -73,48 +73,53 @@ public class Bill_entry extends JInternalFrame {
 		
 		JPanel panel = new JPanel();
 		panel.setBorder(new TitledBorder(UIManager.getBorder("TitledBorder.border"), "Personal Detail", TitledBorder.LEADING, TitledBorder.TOP, null, Color.BLACK));
-		panel.setBounds(310, 11, 723, 48);
+		panel.setBounds(379, 11, 881, 67);
 		getContentPane().add(panel);
 		panel.setLayout(null);
 		
 		JLabel lblNewLabel_1 = new JLabel("Name:");
-		lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 12));
-		lblNewLabel_1.setBounds(10, 22, 46, 14);
+		lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 17));
+		lblNewLabel_1.setBounds(10, 22, 71, 22);
 		panel.add(lblNewLabel_1);
 		
 		JLabel lblptname = new JLabel("");
-		lblptname.setBounds(66, 23, 174, 14);
+		lblptname.setFont(new Font("Tahoma", Font.PLAIN, 17));
+		lblptname.setBounds(66, 23, 174, 21);
 		panel.add(lblptname);
 		
 		JLabel lblAge = new JLabel("Age:");
-		lblAge.setFont(new Font("Tahoma", Font.PLAIN, 12));
-		lblAge.setBounds(587, 22, 46, 14);
+		lblAge.setFont(new Font("Tahoma", Font.PLAIN, 17));
+		lblAge.setBounds(724, 17, 62, 24);
 		panel.add(lblAge);
 		
 		JLabel lblage = new JLabel("");
-		lblage.setBounds(643, 22, 46, 14);
+		lblage.setFont(new Font("Tahoma", Font.PLAIN, 17));
+		lblage.setBounds(798, 13, 71, 31);
 		panel.add(lblage);
 		
 		JLabel lblGender = new JLabel("Gender:");
-		lblGender.setBounds(459, 22, 46, 14);
+		lblGender.setFont(new Font("Tahoma", Font.PLAIN, 17));
+		lblGender.setBounds(514, 13, 62, 32);
 		panel.add(lblGender);
 		
 		JLabel lblgender = new JLabel("");
-		lblgender.setBounds(515, 21, 62, 14);
+		lblgender.setFont(new Font("Tahoma", Font.PLAIN, 17));
+		lblgender.setBounds(588, 17, 71, 31);
 		panel.add(lblgender);
 		
 		JLabel lblNewLabel_4 = new JLabel("Case Date:");
-		lblNewLabel_4.setFont(new Font("Tahoma", Font.PLAIN, 12));
-		lblNewLabel_4.setBounds(250, 22, 93, 14);
+		lblNewLabel_4.setFont(new Font("Tahoma", Font.PLAIN, 17));
+		lblNewLabel_4.setBounds(250, 22, 93, 19);
 		panel.add(lblNewLabel_4);
 		
 		JLabel lblcasedate = new JLabel("");
-		lblcasedate.setBounds(336, 22, 113, 14);
+		lblcasedate.setFont(new Font("Tahoma", Font.PLAIN, 17));
+		lblcasedate.setBounds(355, 23, 133, 21);
 		panel.add(lblcasedate);
 		
 		JPanel panel_1 = new JPanel();
 		panel_1.setBorder(new TitledBorder(UIManager.getBorder("TitledBorder.border"), "Test Fee", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 0)));
-		panel_1.setBounds(10, 70, 735, 380);
+		panel_1.setBounds(10, 87, 864, 433);
 		getContentPane().add(panel_1);
 		panel_1.setLayout(null);
 		
@@ -124,65 +129,77 @@ public class Bill_entry extends JInternalFrame {
 		panel_1.add(lblDepartmentCharge);
 		
 		JLabel lblDepartmentName = new JLabel("Department Name");
-		lblDepartmentName.setBounds(20, 50, 130, 14);
+		lblDepartmentName.setFont(new Font("Tahoma", Font.PLAIN, 17));
+		lblDepartmentName.setBounds(20, 50, 199, 31);
 		panel_1.add(lblDepartmentName);
 		
 		JLabel lblDepartmentCharge_1 = new JLabel("Department Charge");
-		lblDepartmentCharge_1.setBounds(20, 70, 130, 14);
+		lblDepartmentCharge_1.setFont(new Font("Tahoma", Font.PLAIN, 17));
+		lblDepartmentCharge_1.setBounds(20, 125, 199, 31);
 		panel_1.add(lblDepartmentCharge_1);
 		
 		JLabel lbldeptname = new JLabel("");
-		lbldeptname.setBounds(163, 50, 92, 14);
+		lbldeptname.setFont(new Font("Tahoma", Font.PLAIN, 17));
+		lbldeptname.setBounds(140, 82, 190, 31);
 		panel_1.add(lbldeptname);
 		
 		JLabel lbldeptcharge = new JLabel("");
-		lbldeptcharge.setBounds(160, 70, 59, 14);
+		lbldeptcharge.setFont(new Font("Tahoma", Font.PLAIN, 17));
+		lbldeptcharge.setBounds(140, 160, 190, 31);
 		panel_1.add(lbldeptcharge);
 		
 		JLabel lblReportDetail = new JLabel("Report Detail");
-		lblReportDetail.setFont(new Font("Tahoma", Font.BOLD, 16));
-		lblReportDetail.setBounds(290, 22, 147, 20);
+		lblReportDetail.setFont(new Font("Tahoma", Font.BOLD, 20));
+		lblReportDetail.setBounds(387, 15, 147, 34);
 		panel_1.add(lblReportDetail);
 		
 		JLabel lblTotalReport = new JLabel("Total Reports");
-		lblTotalReport.setBounds(300, 50, 104, 14);
+		lblTotalReport.setFont(new Font("Tahoma", Font.PLAIN, 17));
+		lblTotalReport.setBounds(397, 50, 178, 31);
 		panel_1.add(lblTotalReport);
 		
 		JLabel lblTotalReportsCharge = new JLabel("Total Reports Charge");
-		lblTotalReportsCharge.setBounds(300, 70, 114, 14);
+		lblTotalReportsCharge.setFont(new Font("Tahoma", Font.PLAIN, 17));
+		lblTotalReportsCharge.setBounds(397, 87, 178, 26);
 		panel_1.add(lblTotalReportsCharge);
 		
 		JLabel lbltotrep = new JLabel("");
-		lbltotrep.setBounds(442, 50, 59, 14);
+		lbltotrep.setFont(new Font("Tahoma", Font.PLAIN, 17));
+		lbltotrep.setBounds(646, 50, 169, 31);
 		panel_1.add(lbltotrep);
 		
 		JLabel lbltotrepchr = new JLabel("");
-		lbltotrepchr.setBounds(442, 70, 59, 14);
+		lbltotrepchr.setFont(new Font("Tahoma", Font.PLAIN, 17));
+		lbltotrepchr.setBounds(646, 87, 169, 26);
 		panel_1.add(lbltotrepchr);
 		
 		JLabel lblMedicineDetail = new JLabel("Medicine Detail");
 		lblMedicineDetail.setFont(new Font("Tahoma", Font.BOLD, 16));
-		lblMedicineDetail.setBounds(10, 191, 147, 20);
+		lblMedicineDetail.setBounds(10, 207, 147, 20);
 		panel_1.add(lblMedicineDetail);
 		
 		JLabel lblTotalAllocateMedicine = new JLabel("Total Allocate Medicine");
-		lblTotalAllocateMedicine.setBounds(20, 219, 137, 14);
+		lblTotalAllocateMedicine.setFont(new Font("Tahoma", Font.PLAIN, 17));
+		lblTotalAllocateMedicine.setBounds(10, 239, 209, 44);
 		panel_1.add(lblTotalAllocateMedicine);
 		
 		JLabel lblTotalMedicineCharge = new JLabel("Total Medicine Charge");
-		lblTotalMedicineCharge.setBounds(20, 239, 130, 14);
+		lblTotalMedicineCharge.setFont(new Font("Tahoma", Font.PLAIN, 17));
+		lblTotalMedicineCharge.setBounds(10, 289, 209, 24);
 		panel_1.add(lblTotalMedicineCharge);
 		
 		JLabel lbltotmedi = new JLabel("");
-		lbltotmedi.setBounds(167, 219, 59, 14);
+		lbltotmedi.setFont(new Font("Tahoma", Font.PLAIN, 17));
+		lbltotmedi.setBounds(219, 249, 146, 31);
 		panel_1.add(lbltotmedi);
 		
 		JLabel lbltotmedicharge = new JLabel("");
-		lbltotmedicharge.setBounds(167, 239, 59, 14);
+		lbltotmedicharge.setFont(new Font("Tahoma", Font.PLAIN, 17));
+		lbltotmedicharge.setBounds(219, 289, 146, 24);
 		panel_1.add(lbltotmedicharge);
 		
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(20, 270, 233, 94);
+		scrollPane.setBounds(10, 326, 355, 94);
 		panel_1.add(scrollPane);
 		
 		table_medi = new JTable();
@@ -196,28 +213,32 @@ public class Bill_entry extends JInternalFrame {
 		scrollPane.setViewportView(table_medi);
 		
 		JLabel lblAdmitDetail = new JLabel("Admit Detail");
-		lblAdmitDetail.setFont(new Font("Tahoma", Font.BOLD, 16));
-		lblAdmitDetail.setBounds(290, 191, 165, 14);
+		lblAdmitDetail.setFont(new Font("Tahoma", Font.BOLD, 20));
+		lblAdmitDetail.setBounds(387, 220, 173, 33);
 		panel_1.add(lblAdmitDetail);
 		
 		JLabel lblAdmissionTimes = new JLabel("Total Times of Admited");
-		lblAdmissionTimes.setBounds(300, 216, 130, 14);
+		lblAdmissionTimes.setFont(new Font("Tahoma", Font.PLAIN, 17));
+		lblAdmissionTimes.setBounds(387, 259, 252, 27);
 		panel_1.add(lblAdmissionTimes);
 		
 		JLabel lblTotalAdmissionCharge = new JLabel("Total Admission Charge");
-		lblTotalAdmissionCharge.setBounds(300, 236, 130, 14);
+		lblTotalAdmissionCharge.setFont(new Font("Tahoma", Font.PLAIN, 17));
+		lblTotalAdmissionCharge.setBounds(387, 290, 252, 23);
 		panel_1.add(lblTotalAdmissionCharge);
 		
 		JLabel lbladmit = new JLabel("");
-		lbladmit.setBounds(476, 216, 59, 14);
+		lbladmit.setFont(new Font("Tahoma", Font.PLAIN, 17));
+		lbladmit.setBounds(651, 259, 190, 27);
 		panel_1.add(lbladmit);
 		
 		JLabel lbladmitcharge = new JLabel("");
-		lbladmitcharge.setBounds(476, 236, 59, 14);
+		lbladmitcharge.setFont(new Font("Tahoma", Font.PLAIN, 17));
+		lbladmitcharge.setBounds(651, 290, 190, 23);
 		panel_1.add(lbladmitcharge);
 		
 		JScrollPane scrollPane_1 = new JScrollPane();
-		scrollPane_1.setBounds(290, 270, 390, 94);
+		scrollPane_1.setBounds(388, 326, 465, 94);
 		panel_1.add(scrollPane_1);
 		
 		table_room = new JTable();
@@ -231,7 +252,7 @@ public class Bill_entry extends JInternalFrame {
 		scrollPane_1.setViewportView(table_room);
 		
 		JScrollPane scrollPane_2 = new JScrollPane();
-		scrollPane_2.setBounds(302, 95, 378, 85);
+		scrollPane_2.setBounds(387, 126, 466, 85);
 		panel_1.add(scrollPane_2);
 		
 		table_report = new JTable();
@@ -245,108 +266,124 @@ public class Bill_entry extends JInternalFrame {
 		scrollPane_2.setViewportView(table_report);
 		
 		JPanel panel_2 = new JPanel();
-		panel_2.setBounds(10, 11, 296, 48);
+		panel_2.setBounds(10, 11, 357, 67);
 		getContentPane().add(panel_2);
 		panel_2.setLayout(null);
 		
 		JLabel lblNewLabel = new JLabel("Case Id:");
-		lblNewLabel.setBounds(10, 14, 46, 14);
+		lblNewLabel.setBounds(10, 25, 80, 19);
 		panel_2.add(lblNewLabel);
-		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 12));
+		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 17));
 		
 		textField = new JTextField();
-		textField.setBounds(66, 12, 119, 20);
+		textField.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		textField.setBounds(102, 13, 119, 42);
 		panel_2.add(textField);
 		textField.setColumns(10);
 		
 		
 		JPanel panel_3 = new JPanel();
-		panel_3.setBounds(755, 70, 278, 380);
+		panel_3.setBounds(886, 91, 374, 429);
 		getContentPane().add(panel_3);
 		panel_3.setLayout(null);
 		panel_3.setBorder(new TitledBorder(null, "Final Payment", TitledBorder.LEADING, TitledBorder.TOP, null, null));
 		
-		JLabel lblList = new JLabel("Total Cost as per This Case ID");
-		lblList.setBounds(10, 22, 161, 14);
+		JLabel lblList = new JLabel("Total Cost on Case ID");
+		lblList.setFont(new Font("Tahoma", Font.PLAIN, 17));
+		lblList.setBounds(10, 18, 184, 26);
 		panel_3.add(lblList);
 		
 		JLabel lblDepartmentCharge_2 = new JLabel("Department Charge");
-		lblDepartmentCharge_2.setBounds(10, 47, 115, 14);
+		lblDepartmentCharge_2.setFont(new Font("Tahoma", Font.PLAIN, 17));
+		lblDepartmentCharge_2.setBounds(10, 49, 184, 26);
 		panel_3.add(lblDepartmentCharge_2);
 		
 		JLabel lblLabReportCharge = new JLabel("Lab Report Charge");
-		lblLabReportCharge.setBounds(10, 72, 115, 14);
+		lblLabReportCharge.setFont(new Font("Tahoma", Font.PLAIN, 17));
+		lblLabReportCharge.setBounds(10, 88, 184, 23);
 		panel_3.add(lblLabReportCharge);
 		
 		JLabel lblAdmissionCharge = new JLabel("Admission Charge");
-		lblAdmissionCharge.setBounds(10, 97, 115, 14);
+		lblAdmissionCharge.setFont(new Font("Tahoma", Font.PLAIN, 17));
+		lblAdmissionCharge.setBounds(10, 124, 184, 25);
 		panel_3.add(lblAdmissionCharge);
 		
 		JLabel lblExtraCharge = new JLabel("Extra Charge");
-		lblExtraCharge.setBounds(10, 147, 115, 14);
+		lblExtraCharge.setFont(new Font("Tahoma", Font.PLAIN, 17));
+		lblExtraCharge.setBounds(12, 201, 182, 30);
 		panel_3.add(lblExtraCharge);
 		
 		JLabel lblTotalCharge = new JLabel("Total Charge");
 		lblTotalCharge.setFont(new Font("Tahoma", Font.BOLD, 16));
-		lblTotalCharge.setBounds(10, 201, 115, 25);
+		lblTotalCharge.setBounds(55, 258, 115, 25);
 		panel_3.add(lblTotalCharge);
 		
 		JPanel panel_4 = new JPanel();
 		panel_4.setBackground(new Color(0, 0, 0));
 		panel_4.setForeground(new Color(0, 0, 0));
-		panel_4.setBounds(164, 73, 7, 153);
+		panel_4.setBounds(206, 18, 10, 265);
 		panel_3.add(panel_4);
 		
 		JPanel panel_5 = new JPanel();
 		panel_5.setBackground(new Color(0, 0, 0));
-		panel_5.setBounds(10, 183, 233, 4);
+		panel_5.setBounds(72, 244, 233, 4);
 		panel_3.add(panel_5);
 		
 		JLabel label_9 = new JLabel("");
-		label_9.setBounds(177, 22, 91, 14);
+		label_9.setFont(new Font("Tahoma", Font.PLAIN, 17));
+		label_9.setBounds(228, 18, 106, 25);
 		panel_3.add(label_9);
 		
 		JLabel lblfinaldeptcharge = new JLabel("");
-		lblfinaldeptcharge.setBounds(177, 47, 91, 14);
+		lblfinaldeptcharge.setFont(new Font("Tahoma", Font.PLAIN, 17));
+		lblfinaldeptcharge.setBounds(228, 49, 106, 26);
 		panel_3.add(lblfinaldeptcharge);
 		
 		JLabel lblfinallabcharge = new JLabel("");
-		lblfinallabcharge.setBounds(177, 72, 91, 14);
+		lblfinallabcharge.setFont(new Font("Tahoma", Font.PLAIN, 17));
+		lblfinallabcharge.setBounds(228, 88, 106, 18);
 		panel_3.add(lblfinallabcharge);
 		
 		JLabel lblfinalroomcharge = new JLabel("");
-		lblfinalroomcharge.setBounds(177, 97, 91, 14);
+		lblfinalroomcharge.setFont(new Font("Tahoma", Font.PLAIN, 17));
+		lblfinalroomcharge.setBounds(228, 124, 115, 19);
 		panel_3.add(lblfinalroomcharge);
 		
 		JLabel lblfinalextracharge = new JLabel("");
-		lblfinalextracharge.setBounds(177, 147, 91, 14);
+		lblfinalextracharge.setFont(new Font("Tahoma", Font.PLAIN, 17));
+		lblfinalextracharge.setBounds(228, 197, 115, 26);
 		panel_3.add(lblfinalextracharge);
 		
 		JLabel lblfinaltotalcost = new JLabel("");
-		lblfinaltotalcost.setFont(new Font("Tahoma", Font.BOLD, 16));
-		lblfinaltotalcost.setBounds(177, 201, 91, 21);
+		lblfinaltotalcost.setFont(new Font("Tahoma", Font.PLAIN, 17));
+		lblfinaltotalcost.setBounds(224, 258, 106, 25);
 		panel_3.add(lblfinaltotalcost);
 		
 		JLabel lblMedicinecharge = new JLabel("Medicine Charge");
-		lblMedicinecharge.setBounds(10, 122, 115, 14);
+		lblMedicinecharge.setFont(new Font("Tahoma", Font.PLAIN, 17));
+		lblMedicinecharge.setBounds(10, 162, 184, 26);
 		panel_3.add(lblMedicinecharge);
 		
 		JLabel lblfinalmedicharge = new JLabel("");
-		lblfinalmedicharge.setBounds(177, 122, 91, 14);
+		lblfinalmedicharge.setFont(new Font("Tahoma", Font.PLAIN, 17));
+		lblfinalmedicharge.setBounds(228, 162, 115, 22);
 		panel_3.add(lblfinalmedicharge);
 		
 		JLabel lblSelectPaymentType = new JLabel("Select Payment Type");
-		lblSelectPaymentType.setBounds(43, 249, 128, 14);
+		lblSelectPaymentType.setFont(new Font("Tahoma", Font.PLAIN, 17));
+		lblSelectPaymentType.setBounds(10, 304, 175, 35);
 		panel_3.add(lblSelectPaymentType);
 		
 		JComboBox comboBox = new JComboBox();
+		comboBox.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		comboBox.setModel(new DefaultComboBoxModel(new String[] {"cash", "cheque"}));
-		comboBox.setBounds(43, 274, 128, 20);
+		comboBox.setBounds(10, 335, 175, 35);
 		panel_3.add(comboBox);
 
 
 		
 		JButton btnCloseCase = new JButton("Close Case");
+		btnCloseCase.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		btnCloseCase.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				
@@ -379,11 +416,12 @@ public class Bill_entry extends JInternalFrame {
 						
 			}
 		});
-		btnCloseCase.setBounds(43, 305, 200, 35);
+		btnCloseCase.setBounds(10, 381, 200, 35);
 		panel_3.add(btnCloseCase);
 		
 				
 		JButton btnNewButton = new JButton("Submit");
+		btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 17));
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				try {
@@ -527,7 +565,7 @@ public class Bill_entry extends JInternalFrame {
 				}
 			}
 		});
-		btnNewButton.setBounds(195, 11, 89, 23);
+		btnNewButton.setBounds(233, 15, 96, 34);
 		panel_2.add(btnNewButton);
 	}
 }

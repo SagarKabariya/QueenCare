@@ -107,7 +107,7 @@ public class MainFrm extends JFrame {
 	//height=1080;
 
 		
-		con = ConnectionManager.getConnection();
+		
 		setFont(new Font("911 Porscha Laser Italic", Font.PLAIN, 15));
 		setForeground(Color.ORANGE);
 		setIconImage(Toolkit.getDefaultToolkit().getImage(MainFrm.class.getResource("/Images/electrocardiogram2.png")));
@@ -308,7 +308,7 @@ public class MainFrm extends JFrame {
 	    JMenuItem mntmFindOrUpdate = new JMenuItem("Find Or update");
 	    mntmFindOrUpdate.addActionListener(new ActionListener() {
 	    public void actionPerformed(ActionEvent arg0) {
-	    Doctor_all dl = new Doctor_all();
+	    Doctor.update_doctor dl = new Doctor.update_doctor();
 	    desktopPane.add(dl);
 	    dl.setVisible(true);
 	    }
@@ -554,6 +554,7 @@ public class MainFrm extends JFrame {
 			public void actionPerformed(ActionEvent arg0) {
 				//JOptionPane.showMessageDialog(null, "Admin");
 				try {
+					con = ConnectionManager.getConnection();
 					java.sql.Statement st1;
 					st1 = con.createStatement();
 				    ResultSet rs=st1.executeQuery("select * from users where User_id="+txtuserid.getText()+" and PASSWORD like '"+password.getText()+"'");
@@ -592,9 +593,9 @@ public class MainFrm extends JFrame {
 		
 		button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				Login.setVisible(false);
-    			Admin.setVisible(true);
-    			btnLogOut.setVisible(true);
+				 Doctor.update_doctor dl = new Doctor.update_doctor();
+				    desktopPane.add(dl);
+				    dl.setVisible(true);
 			}
 		});
 		

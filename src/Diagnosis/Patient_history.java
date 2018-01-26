@@ -13,6 +13,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -71,6 +72,7 @@ public class Patient_history extends JInternalFrame {
 	int totmedi=0;
 	int medion=0;
 	private JTextField txtother;
+	private JTextField txtdate;
 	/**
 	 * Launch the application.
 	 */
@@ -242,6 +244,26 @@ public class Patient_history extends JInternalFrame {
 		panel_2.add(txtother);
 		txtother.setColumns(10);
 		
+		JLabel lblNextAppointment = new JLabel("Next Appointment");
+		lblNextAppointment.setFont(new Font("Tahoma", Font.PLAIN, 17));
+		lblNextAppointment.setBounds(12, 97, 159, 25);
+		panel_2.add(lblNextAppointment);
+		
+		
+		JDateChooser dc_2 = new JDateChooser();
+		dc_2.setBounds(191, 86, 193, 33);
+		panel_2.add(dc_2);
+		
+		JButton btnNotReqire = new JButton("Not Reqire");
+		btnNotReqire.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				dc_2.setVisible(false);
+				
+			}
+		});
+		btnNotReqire.setBounds(396, 86, 119, 33);
+		panel_2.add(btnNotReqire);
+
 		JPanel panel_3 = new JPanel();
 		panel_3.setBounds(10, 194, 527, 120);
 		desktopPane.add(panel_3);
@@ -661,23 +683,22 @@ public class Patient_history extends JInternalFrame {
 							+ "where p.p_id=cs.p_id AND "
 							+ "cs.dept_id=dp.dept_id AND ap.case_id=cs.case_id "
 							+ "AND cs.case_id = "+Integer.valueOf(txtcsid.getText()));
-					//System.out.println(ps1);
+					System.out.println(ps1);
 					
 				rs=ps1.executeQuery();
-				while(rs.next()){
-					if(rs.getRow()==0)
-					{
-						JOptionPane.showMessageDialog(null, "no row found");
-						
+				if(!rs.next())	{
+					JOptionPane.showMessageDialog(null, "No Record Founr on this Case ID or No Appointment Found in this CASE ID.");
+				}else{
+					rs.previous();
+					while(rs.next()){
+						lb1.setText(rs.getString(5)+" "+rs.getString(6));
+						lb2.setText(rs.getString(4));
+						lb3.setText(rs.getString(1));
+						lb4.setText(rs.getString(2));
+						lb5.setText(rs.getString(3));
+						}
 					}
-				lb1.setText(rs.getString(5)+" "+rs.getString(6));
-				lb2.setText(rs.getString(4));
-				lb3.setText(rs.getString(1));
-				lb4.setText(rs.getString(2));
-				lb5.setText(rs.getString(3));
-					
-				}
-				} catch (SQLException e) {
+				} catch (SQLException e) {	
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
@@ -705,8 +726,17 @@ public class Patient_history extends JInternalFrame {
 				String other;
 				String advice=textArea.getText();
 				Date date = new Date();
-				java.text.SimpleDateFormat fmt = new java.text.SimpleDateFormat("yyyy-MM-dd");
-				String dd = fmt.format(dateChooser.getDate());
+				String timeStamp = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date());
+				 java.text.SimpleDateFormat fmt1 = new java.text.SimpleDateFormat("yyyy-MM-dd");
+				String dd=timeStamp;
+				String redate;
+				if(dc_2.isVisible()){
+					redate=fmt1.format(dc_2.getDate());
+				}
+				else
+				{
+					redate=null;
+				}
 				int csid=Integer.valueOf(txtcsid.getText());
 				try {
 					PreparedStatement p;
@@ -714,7 +744,7 @@ public class Patient_history extends JInternalFrame {
 	+ "(`case_id`, `diagnosis_date`, `bio_chemistry`, `stool`, `blood`, `colonoscopy`, `gastroscopy`, `urine`, `xray`, `sonography`, `other`, `re_con_date`, `re_con_advice`, `ecg`) "
 	+ "VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
 					p.setInt(1,csid );
-					p.setString(2,fmt.format(date));
+					p.setString(2,dd);
 					p.setInt(3,c1);
 					p.setInt(4,c2);
 					p.setInt(5,c3);
@@ -724,10 +754,10 @@ public class Patient_history extends JInternalFrame {
 					p.setInt(9,c7);
 					p.setInt(10,c8);
 					p.setString(11,txtother.getText());
-					p.setString(12,dd);
+					p.setString(12,redate);
 					p.setString(13,textArea_1.getText());
 					p.setInt(14,c9);
-					System.out.println(p.toString());
+					//System.out.println(p.toString());
 					
 					p.executeUpdate();
 					
@@ -753,10 +783,10 @@ public class Patient_history extends JInternalFrame {
 						d1=d1+3;
 						d2=d2+3;
 						d3=d3+3;
-						JOptionPane.showMessageDialog(null, ps4.toString());
+						//JOptionPane.showMessageDialog(null, ps4.toString());
 						ps4.executeUpdate();
-						JOptionPane.showMessageDialog(null, "Patient Information Added successfully");
 					}
+					JOptionPane.showMessageDialog(null, "Patient Information Added successfully, Screen Will Close after this screen.");
 				} catch (SQLException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
